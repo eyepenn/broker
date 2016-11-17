@@ -7,7 +7,10 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
+<%= link_to "Admin", admin_path %>
+<%= link_to "Home", root_path %>
+<%= link_to "Sales", sales_path %>
+<%= link_to "Rentals", rentals_path %>
 <%= yield %>
 
 </body>
