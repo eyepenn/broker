@@ -1,1 +1,9 @@
 <h1>Sales</h1>
+<h3>Active</h3>
+<% @sales.each do |property| %>
+<div><%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address %></div>
+<% end %>
+<h3>Sold</h3>
+<% @sold.each do |property| %>
+<div><%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address %></div>
+<% end %>

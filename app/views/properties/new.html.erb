@@ -1,6 +1,9 @@
 <h1>New Property</h1>
 <%= simple_form_for(@property, html: { class: 'form-horizontal' }) do |f| %>
-  <%= f.input :address %>
+  <%= f.input :active %>
+  <%= f.input :status %>
   <%= f.input :neighborhood %>
+  <%= f.input :price %>
+  <%= f.input :address %>
   <%= f.button :submit %>
 <% end %>
