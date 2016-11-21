@@ -51,4 +51,25 @@ RSpec.describe PropertiesController, type: :controller do
       expect(response).to have_http_status :not_found
     end
   end
+
+  describe 'property#delete' do
+    it 'it should allow a user to destroy a property' do
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+
+      delete :destroy, id: property.id
+      expect(response).to redirect_to admin_path
+      property = Property.find_by(id: property.id)
+      expect(property).to eq nil
+
+    end
+
+    it 'it should return a 404 error if we cannot find a property with the id' do
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+
+      delete :destroy, id: 'BIGTRUCK'
+      expect(response).to have_http_status :not_found
+    end
+
+  end
+
 end

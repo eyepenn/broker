@@ -55,6 +55,7 @@ class PropertiesController < ApplicationController
 
   def destroy
     @property = Property.find_by(id: params[:id])
+    return render_not_found if @property.blank?
     @property.destroy
     redirect_to admin_path
   end
