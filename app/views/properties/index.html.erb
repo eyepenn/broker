@@ -1,4 +1,6 @@
-<h1>All</h1>
+<br><br>
+<h3>All</h3>
+<hr>
 <% @properties.each do |property| %>
-<div><%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address %></div>
+<div><%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= link_to property.address, property_path(property.id) %></div>
 <% end %>

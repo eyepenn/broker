@@ -38,10 +38,17 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#edit' do
     it 'it should show the edit page' do
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza' )
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       get :edit, id: property.id
       expect(response).to have_http_status :success
+    end
+
+    it 'it should show a 404 error if the property is not found' do
+      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+
+      get :edit, id: 'andrew'
+      expect(response).to have_http_status :not_found
     end
   end
 end

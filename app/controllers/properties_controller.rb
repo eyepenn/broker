@@ -13,7 +13,9 @@ class PropertiesController < ApplicationController
   end
 
   def admin
-    @properties = Property.all
+    @sales = Property.order(price: :desc).where(status: 'sale')
+    @sold = Property.order(price: :desc).where(status: 'sold')
+    @rentals = Property.order(price: :desc).where(status: 'rent')
   end
 
   def new
@@ -49,6 +51,12 @@ class PropertiesController < ApplicationController
     else
       render :new, status: :unprocessable_entity
     end
+  end
+
+  def destroy
+    @property = Property.find_by(id: params[:id])
+    @property.destroy
+    redirect_to admin_path
   end
 
   private

@@ -1,1 +1,9 @@
-<h1>Show</h1>
+<br><br>
+<h3>Show</h3>
+<hr>
+<h4>For <%= @property.status %></h4>
+<b>Address:</b> <%= @property.address %>
+<br>
+<b>Neighborhood:</b> <%= @property.neighborhood %>
+<br>
+<b>Price:</b> $<%= number_with_delimiter(@property.price, :delimiter => ',') %>

@@ -5,5 +5,7 @@
   <%= f.input :neighborhood %>
   <%= f.input :price %>
   <%= f.input :address %>
-  <%= f.button :submit %>
+  <%= f.button :submit, class: 'btn btn-success' %>
+  <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
+  <%= link_to 'Delete', property_path(@property), method: :delete, data: { confirm:'Are you sure you want to delete this property?' }, class: 'btn btn-danger' %>  
 <% end %>

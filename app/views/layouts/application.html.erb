@@ -7,10 +7,8 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<%= link_to "Admin", admin_path %>
-<%= link_to "Home", root_path %>
-<%= link_to "Sales", sales_path %>
-<%= link_to "Rentals", rentals_path %>
+<h1>Brooklyn Real Estate</h1>
+<%= link_to "Admin", admin_path %> &mdash; <%= link_to "Home", root_path %> &mdash; <%= link_to "Sales", sales_path %> &mdash; <%= link_to "Rentals", rentals_path %>
 <%= yield %>
 
 </body>
