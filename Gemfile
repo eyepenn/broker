@@ -48,3 +48,4 @@ group :development, :test do
   gem 'factory_girl_rails', '~> 4.0'
 end
 gem 'simple_form'
+gem 'devise', '~> 4.1.1'

@@ -1,7 +1,13 @@
+<% if notice.present? %>
+<p class="alert alert-info"><%= notice %></p>
+<% end %>
+<% if alert.present? %>
+<p class="alert alert-danger"><%= alert %></p>
+<% end %>
 <br><br>
 <h3>Admin</h3>
 <%= link_to "Add New Property", new_property_path %>
-<%= link_to "Logout", '#', class: 'pull-right' %>
+<%= link_to 'Logout', destroy_admin_session_path, method: :delete, class: 'pull-right' %>
 <hr>
 <h3>Sales</h3>
 <% @sales.each do |property| %>

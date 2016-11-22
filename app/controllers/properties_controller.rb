@@ -1,4 +1,5 @@
 class PropertiesController < ApplicationController
+  before_action :authenticate_admin!, only: [:admin, :new, :create, :edit, :update, :destroy]
   def index
     @properties = Property.order(price: :desc)
   end
