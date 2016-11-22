@@ -49,3 +49,5 @@ group :development, :test do
 end
 gem 'simple_form'
 gem 'devise', '~> 4.1.1'
+gem 'geocoder', '1.3.4'
+gem 'figaro', '>= 1.0.0'

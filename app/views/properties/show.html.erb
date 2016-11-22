@@ -7,3 +7,30 @@
 <b>Neighborhood:</b> <%= @property.neighborhood %>
 <br>
 <b>Price:</b> $<%= number_with_delimiter(@property.price, :delimiter => ',') %>
+<br><br><br>
+<% if @property.latitude.present? && @property.longitude.present? %>
+    <div id="map"></div>
+    <script>
+
+      function initMap() {
+        var myLatLng = {lat: <%= @property.latitude %>, lng: <%= @property.longitude %>};
+
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 15,
+          center: myLatLng
+        });
+
+        var title = 'fuck';
+
+		//var price = '$' + <%= number_with_delimiter(@property.price, :delimiter => ',') %>;
+
+        var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map
+        });
+      }
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq1nE3WDOJD4EXPCMb0JzEpyS97KlZu20&callback=initMap">
+    </script>
+    <% end %>
