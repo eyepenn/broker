@@ -54,11 +54,11 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#create' do
     it 'it should allow a user to create a new property' do
-    post :create, property: { active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza' }
-    expect(response).to redirect_to admin_path
-    property = Property.last
+      post :create, property: { active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza' }
+      expect(response).to redirect_to admin_path
+      property = Property.last
 
-    expect(property.active).to eq('Yes')
+      expect(property.active).to eq('Yes')
     end
 
     it 'it should deal with vaildation errors' do
@@ -67,7 +67,6 @@ RSpec.describe PropertiesController, type: :controller do
       expect(response).to have_http_status(:unprocessable_entity)
       expect(property_count).to eq 0
     end
-
   end
 
   describe 'property#edit' do
@@ -97,8 +96,8 @@ RSpec.describe PropertiesController, type: :controller do
     end
 
     it 'it should return a 404 error if we cannot find a property with the id' do
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')      
-    
+      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+
       patch :update, id: 'BIGCAT', property: { active: 'No' }
       expect(response).to have_http_status :not_found
     end
@@ -111,7 +110,6 @@ RSpec.describe PropertiesController, type: :controller do
       property.reload
       expect(property.active).to eq 'Yes'
     end
-
   end
 
   describe 'property#delete' do
@@ -122,16 +120,13 @@ RSpec.describe PropertiesController, type: :controller do
       expect(response).to redirect_to admin_path
       property = Property.find_by(id: property.id)
       expect(property).to eq nil
-
     end
 
     it 'it should return a 404 error if we cannot find a property with the id' do
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       delete :destroy, id: 'BIGTRUCK'
       expect(response).to have_http_status :not_found
     end
-
   end
-
 end

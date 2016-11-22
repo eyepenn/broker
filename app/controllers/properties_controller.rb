@@ -32,17 +32,17 @@ class PropertiesController < ApplicationController
   end
 
   def show
-    @property = Property.find_by(id: params[:id])
+    @property = current_property
     return render_not_found if @property.blank?
   end
 
   def edit
-    @property = Property.find_by(id: params[:id])
+    @property = current_property
     return render_not_found if @property.blank?
   end
 
   def update
-    @property = Property.find_by(id: params[:id])
+    @property = current_property
     return render_not_found if @property.blank?
 
     @property.update_attributes(property_params)
@@ -54,13 +54,17 @@ class PropertiesController < ApplicationController
   end
 
   def destroy
-    @property = Property.find_by(id: params[:id])
+    @property = current_property
     return render_not_found if @property.blank?
     @property.destroy
     redirect_to admin_path
   end
 
   private
+
+  def current_property
+    @current_property ||= Property.find_by(id: params[:id])
+  end
 
   def property_params
     params.require(:property).permit(:active, :status, :neighborhood, :price, :address)
