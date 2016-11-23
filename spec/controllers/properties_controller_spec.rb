@@ -38,14 +38,14 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#show' do
     it 'it should successfully show the page if the property is found' do
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       get :show, id: property.id
       expect(response).to have_http_status :success
     end
 
     it 'it should show a 404 error if the property is not found' do
-      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       get :show, id: 'BIGSKY'
       expect(response).to have_http_status :not_found
@@ -68,14 +68,14 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#create' do
     it 'it should not allow unauthenticated to create a property' do
-      post :create, property: { active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza' }
+      post :create, property: { active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500' }
       expect(response).to redirect_to new_user_session_path
     end
 
     it 'it should allow a user to create a new property' do
       user = FactoryGirl.create(:user)
       sign_in user
-      post :create, property: { active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza' }
+      post :create, property: { active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500' }
       expect(response).to redirect_to admin_path
       property = Property.last
 
@@ -94,7 +94,7 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#edit' do
     it 'it should not allow unauthenticated to edit page' do
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       get :edit, id: property.id
       expect(response).to redirect_to new_user_session_path
@@ -103,7 +103,7 @@ RSpec.describe PropertiesController, type: :controller do
     it 'it should show the edit page' do
       user = FactoryGirl.create(:user)
       sign_in user
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       get :edit, id: property.id
       expect(response).to have_http_status :success
@@ -112,7 +112,7 @@ RSpec.describe PropertiesController, type: :controller do
     it 'it should show a 404 error if the property is not found' do
       user = FactoryGirl.create(:user)
       sign_in user
-      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       get :edit, id: 'BIGSKY'
       expect(response).to have_http_status :not_found
@@ -121,7 +121,7 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#update' do
     it 'it should not allow unauthenticated to update a property' do
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       patch :update, id: property.id, property: { active: 'No' }
       expect(response).to redirect_to new_user_session_path
@@ -130,7 +130,7 @@ RSpec.describe PropertiesController, type: :controller do
     it 'it should allow a user to update a property' do
       user = FactoryGirl.create(:user)
       sign_in user
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       patch :update, id: property.id, property: { active: 'No' }
       expect(response).to redirect_to admin_path
@@ -141,7 +141,7 @@ RSpec.describe PropertiesController, type: :controller do
     it 'it should return a 404 error if we cannot find a property with the id' do
       user = FactoryGirl.create(:user)
       sign_in user
-      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       patch :update, id: 'BIGCAT', property: { active: 'No' }
       expect(response).to have_http_status :not_found
@@ -150,7 +150,7 @@ RSpec.describe PropertiesController, type: :controller do
     it 'it should render the edit form with an http status of unprocessable entity' do
       user = FactoryGirl.create(:user)
       sign_in user
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       patch :update, id: property.id, property: { active: '' }
       expect(response).to have_http_status :unprocessable_entity
@@ -161,7 +161,7 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#delete' do
     it 'it should not allow unauthenticated to delete a property' do
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       delete :destroy, id: property.id
       expect(response).to redirect_to new_user_session_path
@@ -170,7 +170,7 @@ RSpec.describe PropertiesController, type: :controller do
     it 'it should allow a user to destroy a property' do
       user = FactoryGirl.create(:user)
       sign_in user
-      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       delete :destroy, id: property.id
       expect(response).to redirect_to admin_path
@@ -181,7 +181,7 @@ RSpec.describe PropertiesController, type: :controller do
     it 'it should return a 404 error if we cannot find a property with the id' do
       user = FactoryGirl.create(:user)
       sign_in user
-      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+      FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza', proximity: 'Subway', description: 'Warm', doorman: 'No', outdoor: 'No', notes: 'Roomy', property_type: 'Condo', bed: '1', bath: '1', maintenance: '500')
 
       delete :destroy, id: 'BIGTRUCK'
       expect(response).to have_http_status :not_found

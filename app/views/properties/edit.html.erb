@@ -1,6 +1,6 @@
 <h1>Update property</h1>
 <%= simple_form_for(@property, html: { class: 'form-horizontal' }) do |f| %>
-  <%= f.input :active %>
+  <%= f.input :active, collection: [:yes, :no], as: :radio_buttons %>
   <%= f.input :status %>
   <%= f.input :neighborhood %>
   <%= f.input :price %>
