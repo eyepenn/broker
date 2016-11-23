@@ -23,6 +23,11 @@ RSpec.describe PropertiesController, type: :controller do
   end
 
   describe 'property#admin' do
+    it 'it should not allow unauthenticated to admin page' do
+      get :admin
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it 'it should show the admin page' do
       user = FactoryGirl.create(:user)
       sign_in user
@@ -48,6 +53,11 @@ RSpec.describe PropertiesController, type: :controller do
   end
 
   describe 'property#new' do
+    it 'it should not allow unauthenticated to new page' do
+      get :new
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it 'it should show the new page' do
       user = FactoryGirl.create(:user)
       sign_in user
@@ -57,6 +67,11 @@ RSpec.describe PropertiesController, type: :controller do
   end
 
   describe 'property#create' do
+    it 'it should not allow unauthenticated to create a property' do
+      post :create, property: { active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza' }
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it 'it should allow a user to create a new property' do
       user = FactoryGirl.create(:user)
       sign_in user
@@ -78,6 +93,13 @@ RSpec.describe PropertiesController, type: :controller do
   end
 
   describe 'property#edit' do
+    it 'it should not allow unauthenticated to edit page' do
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+
+      get :edit, id: property.id
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it 'it should show the edit page' do
       user = FactoryGirl.create(:user)
       sign_in user
@@ -98,6 +120,13 @@ RSpec.describe PropertiesController, type: :controller do
   end
 
   describe 'property#update' do
+    it 'it should not allow unauthenticated to update a property' do
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+
+      patch :update, id: property.id, property: { active: 'No' }
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it 'it should allow a user to update a property' do
       user = FactoryGirl.create(:user)
       sign_in user
@@ -131,6 +160,13 @@ RSpec.describe PropertiesController, type: :controller do
   end
 
   describe 'property#delete' do
+    it 'it should not allow unauthenticated to delete a property' do
+      property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
+
+      delete :destroy, id: property.id
+      expect(response).to redirect_to new_user_session_path
+    end
+
     it 'it should allow a user to destroy a property' do
       user = FactoryGirl.create(:user)
       sign_in user
