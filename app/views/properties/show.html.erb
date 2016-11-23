@@ -16,13 +16,10 @@
         var myLatLng = {lat: <%= @property.latitude %>, lng: <%= @property.longitude %>};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
+          zoom: 14,
           center: myLatLng
         });
 
-        var title = 'fuck';
-
-		//var price = '$' + <%= number_with_delimiter(@property.price, :delimiter => ',') %>;
 
         var marker = new google.maps.Marker({
           position: myLatLng,
