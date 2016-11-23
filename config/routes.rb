@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :admins, controllers: { registrations: 'registrations' }
+  devise_for :users, controllers: { registrations: 'registrations' }
   root 'properties#index'
 
   resources :properties do
@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'rentals', to: 'properties#rentals'
   get 'sales', to: 'properties#sales'
   get 'admin', to: 'properties#admin'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

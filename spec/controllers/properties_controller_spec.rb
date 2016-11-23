@@ -24,6 +24,8 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#admin' do
     it 'it should show the admin page' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       get :admin
       expect(response).to have_http_status :success
     end
@@ -47,6 +49,8 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#new' do
     it 'it should show the new page' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       get :new
       expect(response).to have_http_status :success
     end
@@ -54,6 +58,8 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#create' do
     it 'it should allow a user to create a new property' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       post :create, property: { active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza' }
       expect(response).to redirect_to admin_path
       property = Property.last
@@ -62,6 +68,8 @@ RSpec.describe PropertiesController, type: :controller do
     end
 
     it 'it should deal with vaildation errors' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       property_count = Property.count
       post :create, property: { active: ' ' }
       expect(response).to have_http_status(:unprocessable_entity)
@@ -71,6 +79,8 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#edit' do
     it 'it should show the edit page' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       get :edit, id: property.id
@@ -78,6 +88,8 @@ RSpec.describe PropertiesController, type: :controller do
     end
 
     it 'it should show a 404 error if the property is not found' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       get :edit, id: 'BIGSKY'
@@ -87,6 +99,8 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#update' do
     it 'it should allow a user to update a property' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       patch :update, id: property.id, property: { active: 'No' }
@@ -96,6 +110,8 @@ RSpec.describe PropertiesController, type: :controller do
     end
 
     it 'it should return a 404 error if we cannot find a property with the id' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       patch :update, id: 'BIGCAT', property: { active: 'No' }
@@ -103,6 +119,8 @@ RSpec.describe PropertiesController, type: :controller do
     end
 
     it 'it should render the edit form with an http status of unprocessable entity' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       patch :update, id: property.id, property: { active: '' }
@@ -114,6 +132,8 @@ RSpec.describe PropertiesController, type: :controller do
 
   describe 'property#delete' do
     it 'it should allow a user to destroy a property' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       property = FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       delete :destroy, id: property.id
@@ -123,6 +143,8 @@ RSpec.describe PropertiesController, type: :controller do
     end
 
     it 'it should return a 404 error if we cannot find a property with the id' do
+      user = FactoryGirl.create(:user)
+      sign_in user
       FactoryGirl.create(:property, active: 'Yes', status: 'Sale', neighborhood: 'Park Slope', price: '300000', address: 'Grand Army Plaza')
 
       delete :destroy, id: 'BIGTRUCK'
