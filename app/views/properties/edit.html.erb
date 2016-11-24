@@ -14,6 +14,8 @@
   <%= f.input :bed, collection: 0..10 %>
   <%= f.input :bath, collection: 0..10 %>
   <%= f.input :description %>
+  <%= f.input :images, collection: 0..20 %>
+  <%= f.input :images_folder %>
   <%= f.button :submit, class: 'btn btn-success' %>
   <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
   <%= link_to 'Delete Property', property_path(@property), method: :delete, data: { confirm:'Are you sure you want to delete this property?' }, class: 'btn btn-danger pull-right' %>  

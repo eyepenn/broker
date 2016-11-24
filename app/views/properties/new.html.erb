@@ -11,9 +11,11 @@
   <%= f.input :notes %>
   <%= f.input :doorman, collection: [:Yes, :No], as: :radio_buttons %>
   <%= f.input :outdoor, collection: [:Yes, :No], as: :radio_buttons %>
-  <%= f.input :bed, collection: 0..10 %>
-  <%= f.input :bath, collection: 0..10 %>
+  <%= f.input :bed, collection: 0..10, prompt: "How many?" %>
+  <%= f.input :bath, collection: 0..10, prompt: "How many?" %>
   <%= f.input :description %>
+  <%= f.input :images, collection: 0..20, prompt: "How many?" %>
+  <%= f.input :images_folder %>
   <%= f.button :submit, class: 'btn btn-success' %>
   <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
 <% end %>
