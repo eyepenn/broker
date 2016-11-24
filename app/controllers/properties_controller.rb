@@ -6,18 +6,20 @@ class PropertiesController < ApplicationController
   end
 
   def sales
-    @sales = Property.order(price: :desc).where(active: 'yes', status: 'sale')
-    @sold = Property.order(price: :desc).where(active: 'yes', status: 'sold')
+    @sales = Property.order(price: :desc).where(active: 'Yes', status: 'For Sale')
+    @contract = Property.order(price: :desc).where(status: 'In Contract')
+    @sold = Property.order(price: :desc).where(active: 'Yes', status: 'Sold')
   end
 
   def rentals
-    @rentals = Property.order(price: :desc).where(active: 'yes', status: 'rent')
+    @rentals = Property.order(price: :desc).where(active: 'Yes', status: 'For Rent')
   end
 
   def admin
-    @sales = Property.order(price: :desc).where(status: 'sale')
-    @sold = Property.order(price: :desc).where(status: 'sold')
-    @rentals = Property.order(price: :desc).where(status: 'rent')
+    @sales = Property.order(price: :desc).where(status: 'For Sale')
+    @contract = Property.order(price: :desc).where(status: 'In Contract')
+    @sold = Property.order(price: :desc).where(status: 'Sold')
+    @rentals = Property.order(price: :desc).where(status: 'For Rent')
   end
 
   def new

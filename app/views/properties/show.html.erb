@@ -1,13 +1,19 @@
 <br><br>
 <h3>Show</h3>
 <hr>
-<h4>For <%= @property.status %></h4>
-<b>Address:</b> <%= @property.address %>
-<br>
-<b>Neighborhood:</b> <%= @property.neighborhood %>
-<br>
-<b>Price:</b> $<%= number_with_delimiter(@property.price, :delimiter => ',') %>
-<br><br><br>
+<h4><%= @property.status %></h4>
+<b>Address:</b> <%= @property.address %><br>
+<b>Neighborhood:</b> <%= @property.neighborhood %><br>
+<b>Price:</b> $<%= number_with_delimiter(@property.price, :delimiter => ',') %><br>
+<b>Proximity:</b> <%= @property.proximity %><br>
+<b>Description:</b> <%= @property.description.html_safe %><br>
+<b>Doorman:</b> <%= @property.doorman %><br>
+<b>Outdoor:</b> <%= @property.outdoor %><br>   
+<b>Notes:</b> <%= @property.notes %><br>
+<b>Type:</b> <%= @property.property_type %><br>
+<b>Bed:</b> <%= @property.bed %><br>
+<b>Bath:</b> <%= @property.bath %><br>
+<b>Maintenance:</b> $<%= @property.maintenance %><br>
 <% if @property.latitude.present? && @property.longitude.present? %>
     <div id="map"></div>
     <script>

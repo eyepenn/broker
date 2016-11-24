@@ -1,10 +1,19 @@
 <h1>New Property</h1>
 <%= simple_form_for(@property, html: { class: 'form-horizontal' }) do |f| %>
-  <%= f.input :active %>
+  <%= f.input :active, collection: [:Yes, :No], as: :radio_buttons %>
   <%= f.input :status %>
   <%= f.input :neighborhood %>
   <%= f.input :price %>
+  <%= f.input :maintenance %>
   <%= f.input :address %>
+  <%= f.input :proximity %>
+  <%= f.input :property_type %>
+  <%= f.input :notes %>
+  <%= f.input :doorman, collection: [:Yes, :No], as: :radio_buttons %>
+  <%= f.input :outdoor, collection: [:Yes, :No], as: :radio_buttons %>
+  <%= f.input :bed, collection: 0..10 %>
+  <%= f.input :bath, collection: 0..10 %>
+  <%= f.input :description %>
   <%= f.button :submit, class: 'btn btn-success' %>
   <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
 <% end %>
