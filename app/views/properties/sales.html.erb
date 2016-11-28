@@ -2,11 +2,12 @@
 <h3>Sales</h3>
 <hr>
 <% @sales.each do |property| %>
-<div><b><%= property.status %></b> - <%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
+<div><%= image_tag property.images_folder + '/outside.jpeg', width: 200 %><b><%= property.status %></b> - <%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
 <% end %>
 <% @contract.each do |property| %>
-<div><b><%= property.status %></b> - <%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
+<div><%= image_tag property.images_folder + '/outside.jpeg', width: 200 %>
+<b><%= property.status %></b> - <%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
 <% end %>
 <% @sold.each do |property| %>
-<div><b><%= property.status %></b> - <%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
+<div><%= image_tag property.images_folder + '/outside.jpeg', width: 200 %><b><%= property.status %></b> - <%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
 <% end %>

@@ -12,11 +12,9 @@ class Property < ActiveRecord::Base
   validates :description, presence: true, length: { minimum: 3 }
   validates :doorman, presence: true, length: { minimum: 2, maximum: 3 }
   validates :outdoor, presence: true, length: { minimum: 2, maximum: 3 }
-  validates :notes, presence: true, length: { minimum: 3, maximum: 25 }
   validates :property_type, presence: true, length: { minimum: 3, maximum: 15 }
   validates :bed, presence: true, length: { minimum: 1, maximum: 2 }
   validates :bath, presence: true, length: { minimum: 1, maximum: 2 }
-  validates :maintenance, presence: true, length: { minimum: 0, maximum: 5 }
   validates :images, presence: true, length: { minimum: 1, maximum: 2 }
   validates :images_folder, presence: true, length: { minimum: 5, maximum: 20 }
 end

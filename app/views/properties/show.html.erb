@@ -1,6 +1,7 @@
 <br><br>
 <h3>Show</h3>
 <hr>
+<div id="showcontent">
 <h4><%= @property.status %></h4>
 <b>Address:</b> <%= @property.address %><br>
 <b>Neighborhood:</b> <%= @property.neighborhood %><br>
@@ -14,19 +15,42 @@
 <b>Bed:</b> <%= @property.bed %><br>
 <b>Bath:</b> <%= @property.bath %><br>
 <b>Maintenance:</b> $<%= @property.maintenance %><br>
+<b>Images:</b> <%= @property.images %><br>
+<b>Images folder:</b> <%= @property.images_folder %><br>
+</div>
+  <div id="photos">
+  <div class="w3-content w3-display-container">
+  <%= image_tag @property.images_folder + '/1.jpg', class: 'mySlides' %>
+  <%= image_tag @property.images_folder + '/2.jpg', class: 'mySlides' %>
+  <%= image_tag @property.images_folder + '/3.jpg', class: 'mySlides' %>
+  <%= image_tag @property.images_folder + '/4.jpg', class: 'mySlides' %>
+  <%= image_tag @property.images_folder + '/5.jpg', class: 'mySlides' %>
+  <%= image_tag @property.images_folder + '/6.jpg', class: 'mySlides' %>
+  <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
+  <a class="w3-btn-floating w3-display-right" onclick="plusDivs(+1)">&#10095;</a>
+  </div>
+  <div class="w3-content w3-display-container w3-display-center">
+    <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(1)"></span>
+      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(2)"></span>
+      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(3)"></span>
+      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(4)"></span>
+      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(5)"></span>
+      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(6)"></span>
+  </div>
+  <script>
+  showDivs(slideIndex);
+  </script>
+</div>
+<div id="media">
 <% if @property.latitude.present? && @property.longitude.present? %>
-    <div id="map"></div>
+<div id="map"></div>
     <script>
-
       function initMap() {
         var myLatLng = {lat: <%= @property.latitude %>, lng: <%= @property.longitude %>};
-
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
           center: myLatLng
         });
-
-
         var marker = new google.maps.Marker({
           position: myLatLng,
           map: map
@@ -37,3 +61,5 @@
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq1nE3WDOJD4EXPCMb0JzEpyS97KlZu20&callback=initMap">
     </script>
     <% end %>
+  </div>
+  <div class="clear_left"></div>
