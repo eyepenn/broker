@@ -1,22 +1,31 @@
 <h1>Update property</h1>
 <%= simple_form_for(@property, html: { class: 'form-horizontal' }) do |f| %>
-  <%= f.input :active, collection: [:Yes, :No], as: :radio_buttons %>
-  <%= f.input :status %>
+<div class="form_left">
+  <%= f.input :active, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
+  <%= f.input :status, collection: ['For Sale', 'In Contract', 'Sold', 'For Rent'] %>
   <%= f.input :neighborhood %>
-  <%= f.input :price %>
-  <%= f.input :maintenance %>
   <%= f.input :address %>
   <%= f.input :proximity %>
-  <%= f.input :property_type %>
-  <%= f.input :notes %>
-  <%= f.input :doorman, collection: [:Yes, :No], as: :radio_buttons %>
-  <%= f.input :outdoor, collection: [:Yes, :No], as: :radio_buttons %>
+</div>
+<div class="form_center">
+  <%= f.input :price %>
+  <%= f.input :maintenance %>
+  <%= f.input :property_type, collection: ['Co-Op', 'Condo', 'House', 'Commercial'] %>
   <%= f.input :bed, collection: 0..10 %>
   <%= f.input :bath, collection: 0..10 %>
-  <%= f.input :description %>
+</div>
+<div class="form_right">
+  <%= f.input :doorman, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
+  <%= f.input :outdoor, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
+  <%= f.input :notes %>
   <%= f.input :images, collection: 0..20 %>
   <%= f.input :images_folder %>
+</div>
+<div class="form_bottom">
+<%= f.input :description %>
+</div>
   <%= f.button :submit, class: 'btn btn-success' %>
-  <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
-  <%= link_to 'Delete Property', property_path(@property), method: :delete, data: { confirm:'Are you sure you want to delete this property?' }, class: 'btn btn-danger pull-right' %>  
+    <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
+  <%= link_to 'Delete Property', property_path(@property), method: :delete, data: { confirm:'Are you sure you want to delete this property?' }, class: 'btn btn-danger pull-right' %> 
 <% end %>
+<br />

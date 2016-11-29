@@ -2,5 +2,5 @@
 <h3>Rentals</h3>
 <hr>
 <% @rentals.each do |property| %>
-<div><%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
+<div><%= image_tag property.images_folder + '/1.jpg', width: 200 %><%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
 <% end %>

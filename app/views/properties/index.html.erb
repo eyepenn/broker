@@ -1,6 +1,4 @@
-<br><br>
-<h3>All</h3>
-<hr>
-<% @properties.each do |property| %>
-<div><%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= link_to property.address, property_path(property.id) %></div>
-<% end %>
+<%= image_tag 'gap.jpg' %>
+
+
+<div id="disclaimer">Although all information furnished regarding property for sale or rental is from sources deemed reliable, such information has not been verified and no express representation is made, nor any to be implied, as to the accuracy thereof, and is submitted subject to errors, omissions, change of price or other conditions, prior sale, lease, or withdrawal without notice.</div> 

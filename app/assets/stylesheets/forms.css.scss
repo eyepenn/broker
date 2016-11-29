@@ -1,0 +1,33 @@
+.form_left {
+	width:200px;
+	margin:0 27px 0 16px;
+	float:left;
+}
+.form_center {
+	width:200px;
+	padding:0 0px 0 0px;
+	margin:0 0 0 44px;
+	float:left;	
+}
+.form_right {
+	width:200px;
+	float:right;
+}
+.form_bottom {
+	width:765px;
+	margin-left:16px;
+	padding-right:20px;
+	clear:both;
+}
+.inline {
+	display:inline;
+}
+.radio {
+	margin-right:8px;
+}
+.control-label {
+	margin-right:10px;
+}
+#property_active_yes, #property_active_no, #property_doorman_yes, #property_doorman_no, #property_outdoor_yes, #property_outdoor_no {
+	margin:10px 0px 0 -18px;
+}

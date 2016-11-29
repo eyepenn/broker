@@ -1,21 +1,30 @@
-<h1>New Property</h1>
+<h3>Add New Property</h3>
 <%= simple_form_for(@property, html: { class: 'form-horizontal' }) do |f| %>
-  <%= f.input :active, collection: [:Yes, :No], as: :radio_buttons %>
-  <%= f.input :status %>
+<div class="form_left">
+  <%= f.input :active, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
+  <%= f.input :status, collection: ['For Sale', 'In Contract', 'Sold', 'For Rent'], prompt: "Status?" %>
   <%= f.input :neighborhood %>
-  <%= f.input :price %>
-  <%= f.input :maintenance %>
   <%= f.input :address %>
   <%= f.input :proximity %>
-  <%= f.input :property_type %>
-  <%= f.input :notes %>
-  <%= f.input :doorman, collection: [:Yes, :No], as: :radio_buttons %>
-  <%= f.input :outdoor, collection: [:Yes, :No], as: :radio_buttons %>
+</div>
+<div class="form_center">
+  <%= f.input :price %>
+  <%= f.input :maintenance %>
+  <%= f.input :property_type, collection: ['Co-Op', 'Condo', 'House', 'Commercial'], prompt: "Type?" %>
   <%= f.input :bed, collection: 0..10, prompt: "How many?" %>
   <%= f.input :bath, collection: 0..10, prompt: "How many?" %>
-  <%= f.input :description %>
+</div>
+<div class="form_right">
+  <%= f.input :doorman, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
+  <%= f.input :outdoor, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
+  <%= f.input :notes %>
   <%= f.input :images, collection: 0..20, prompt: "How many?" %>
   <%= f.input :images_folder %>
+</div>
+<div class="form_bottom">
+<%= f.input :description %>
+</div>
   <%= f.button :submit, class: 'btn btn-success' %>
   <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
 <% end %>
+<br />

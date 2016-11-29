@@ -1,15 +1,18 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Brooklyn Real Estate</title>
+  <title>Frederick Palmer Realty</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-<h1>Brooklyn Real Estate</h1>
-<%= link_to "Admin", admin_path %> &mdash; <%= link_to "Home", root_path %> &mdash; <%= link_to "Sales", sales_path %> &mdash; <%= link_to "Rentals", rentals_path %>
+<div id="content_holder">
+<div id="center">
+<h1><%= link_to 'Frederick Palmer Realty', root_path, class: 'logo' %></h1>
+<div class="navigation"><%= link_to 'Admin', admin_path %> &mdash; <%= link_to 'Sales', sales_path %> &mdash; <%= link_to 'Rentals', rentals_path %></div>
 <%= yield %>
-
+</div>
+</div>
 </body>
 </html>

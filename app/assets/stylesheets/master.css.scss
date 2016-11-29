@@ -1,7 +1,31 @@
 body {
-	padding:20px;
-	
+	margin:0px;
+	padding:0px;	
 }
+#content_holder {
+	width:100%;
+	text-align:center;
+}
+#center {
+	width:765px;
+	text-align:left;
+	margin:0 auto 0 auto ;
+}
+a.logo, a.logo:hover {
+	text-decoration:none;
+	color:#000;
+}
+.navigation {
+	font-size:22px;
+	margin:0 0 20px 0;
+}
+#disclaimer {
+	font-size:10px;
+	text-align:center;
+	margin-top:20px;
+}
+
+
 #showcontent {
 	float:left;
 	margin:0 30px 0 0;
