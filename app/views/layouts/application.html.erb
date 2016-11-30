@@ -2,15 +2,16 @@
 <html>
 <head>
   <title>Frederick Palmer Realty</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 <div id="content_holder">
 <div id="center">
-<h1><%= link_to 'Frederick Palmer Realty', root_path, class: 'logo' %></h1>
-<div class="navigation"><%= link_to 'Admin', admin_path %> &mdash; <%= link_to 'Sales', sales_path %> &mdash; <%= link_to 'Rentals', rentals_path %></div>
+<span class="logo_holder pull-left"><%= link_to 'Frederick Palmer Realty', root_path, class: 'logo' %></span>
+<span class="pull-right phone">718-783-1010</span>
+<div class="clear_both"></div>
 <%= yield %>
 </div>
 </div>

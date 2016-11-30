@@ -1,31 +1,65 @@
-body {
+body, html {
+	height:100%;
+	padding:0px;
 	margin:0px;
-	padding:0px;	
 }
 #content_holder {
 	width:100%;
+	height:100%;
 	text-align:center;
 }
 #center {
 	width:765px;
+	height:100%;
 	text-align:left;
-	margin:0 auto 0 auto ;
+	margin:0 auto;
+	box-shadow: 0 8px 5px 5px #c0c0c0;
+}
+#gap {
+	text-align:center;
+	width:765px;
+	height:521px;
+	background-image:url(bridge.jpg);
+	margin-top:10px;
+}
+#menu {
+	background-color:rgba(0,0,0,0.8);
+	height:200px;
+	width:500px;
+	position:relative;
+	top:170px;
+	margin:0px auto 0px auto;
+	border:1px solid #A4A4A4;
+	font-size:28px;
+	color:#FFFFFF;
+}
+#menu_items {
+	text-align:center;
+	margin-top:80px;
+}
+#menu_items a, #menu_items a:hover {
+	color:#FFF;
+	text-decoration:none;
+}
+.logo_holder {
+	padding:12px 0 0 8px;	
 }
 a.logo, a.logo:hover {
 	text-decoration:none;
 	color:#000;
+	font-size:32px;
+	font-weight:bold;
 }
-.navigation {
-	font-size:22px;
-	margin:0 0 20px 0;
+.phone {
+	font-size:20px;
+	font-weight:bold;
+	padding:24px 8px 0px 0px;
 }
 #disclaimer {
 	font-size:10px;
 	text-align:center;
 	margin-top:20px;
 }
-
-
 #showcontent {
 	float:left;
 	margin:0 30px 0 0;
@@ -46,4 +80,7 @@ a.logo, a.logo:hover {
   }
 .clear_left {
 	clear:left;
+}
+.clear_both {
+	clear:both;
 }

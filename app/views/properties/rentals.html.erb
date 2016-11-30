@@ -1,6 +1,6 @@
-<br><br>
 <h3>Rentals</h3>
 <hr>
 <% @rentals.each do |property| %>
-<div><%= image_tag property.images_folder + '/1.jpg', width: 200 %><%= link_to property.address.split(',').first, property_path(property.id) %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
+<div><%= image_tag property.images_folder + '/1.jpg', width: 200 %>Address: <%= link_to property.address.split(',').first, property_path(property.id) %><br />Neighborhood: <%= property.neighborhood %><br />Price: $<%= number_with_delimiter(property.price, :delimiter => ',') %><br />Proximity: <%= property.proximity %><br />Type: <%= property.property_type %><br />Bedrooms: <%= property.bed %><br />Bathrooms: <%= property.bath %></div>
+<hr>
 <% end %>
