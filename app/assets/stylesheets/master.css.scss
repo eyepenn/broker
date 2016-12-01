@@ -65,11 +65,26 @@ a.logo, a.logo:hover {
 	padding-bottom:20px;
 	margin:20px 0 0px 0;
 }
-.section {
+h2 {
+	font-family: 'montserratregular';
+	font-size:28px;
+	padding:0 0 0 0px;
+	margin:14px 0 12px 0;
+}
+h3 {
 	font-family: 'montserratregular';
 	font-size:28px;
 	padding:0 0 0 8px;
 	margin:14px 0 10px 0;
+}
+h4 {
+	font-family: 'montserratregular';
+	font-size:20px;
+	padding:0 0 0 8px;
+	margin:14px 0 4px 0;
+}
+.alert {
+	margin:4px 10px 0 10px;
 }
 .list_holder {
 	width:749px;

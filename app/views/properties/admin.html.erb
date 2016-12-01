@@ -1,3 +1,4 @@
+<hr>
 <% if notice.present? %>
 <p class="alert alert-info"><%= notice %></p>
 <% end %>
@@ -5,25 +6,36 @@
 <p class="alert alert-danger"><%= alert %></p>
 <% end %>
 <h3>Admin</h3>
+<div class="list_holder">
 <%= link_to "Add New Property", new_property_path %>
 <%= link_to 'Logout', destroy_user_session_path, method: :delete, class: 'pull-right' %>
+</div>
 <hr>
-<h3>Sales: <%= @sales.count %></h3>
+<h4>For Sale: <%= @sales.count %></h4>
+<div class="list_holder">
 <% @sales.each do |property| %>
-<div><%= link_to "Update", edit_property_path(property.id) %> - <b>Active:</b> <%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address.split(',').first %></div>
+<div><%= link_to "Edit", edit_property_path(property.id) %> - <b>Active:</b> <%= property.active %> - <%= property.status %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address %> - <%= property.neighborhood %></div>
 <% end %>
+</div>
 <hr>
-<h3>In Contract: <%= @contract.count %></h3>
+<h4>In Contract: <%= @contract.count %></h4>
+<div class="list_holder">
 <% @contract.each do |property| %>
-<div><%= link_to "Update", edit_property_path(property.id) %> - <b>Active:</b> <%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address.split(',').first %></div>
+<div><%= link_to "Edit", edit_property_path(property.id) %> - <b>Active:</b> <%= property.active %> - <%= property.status %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address %> - <%= property.neighborhood %></div>
 <% end %>
+</div>
 <hr>
-<h3>Sold: <%= @sold.count %></h3>
+<h4>Sold: <%= @sold.count %></h4>
+<div class="list_holder">
 <% @sold.each do |property| %>
-<div><%= link_to "Update", edit_property_path(property.id) %> - <b>Active:</b> <%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address.split(',').first %></div>
+<div><%= link_to "Edit", edit_property_path(property.id) %> - <b>Active:</b> <%= property.active %> - <%= property.status %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address %> - <%= property.neighborhood %></div>
 <% end %>
+</div>
 <hr>
-<h3>Rentals: <%= @rentals.count %></h3>
+<h4>For Rent: <%= @rentals.count %></h4>
+<div class="list_holder">
 <% @rentals.each do |property| %>
-<div><%= link_to "Update", edit_property_path(property.id) %> - <b>Active:</b> <%= property.active %> - <%= property.status %> - <%= property.neighborhood %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address.split(',').first %></div>
+<div><%= link_to "Edit", edit_property_path(property.id) %> - <b>Active:</b> <%= property.active %> - <%= property.status %> - $<%= number_with_delimiter(property.price, :delimiter => ',') %> - <%= property.address %> - <%= property.neighborhood %></div>
 <% end %>
+</div>
+<br />
