@@ -1,6 +1,13 @@
-<h3>Rentals</h3>
 <hr>
+<h3 class="section">Rentals</h3>
+<div class="list_holder">
 <% @rentals.each do |property| %>
-<div><%= image_tag property.images_folder + '/1.jpg', width: 200 %>Address: <%= link_to property.address.split(',').first, property_path(property.id) %><br />Neighborhood: <%= property.neighborhood %><br />Price: $<%= number_with_delimiter(property.price, :delimiter => ',') %><br />Proximity: <%= property.proximity %><br />Type: <%= property.property_type %><br />Bedrooms: <%= property.bed %><br />Bathrooms: <%= property.bath %></div>
-<hr>
+<div class="property_holder">
+<%= link_to property_path(property.id) do %>
+<%= image_tag property.images_folder + '/1.jpg'%>
 <% end %>
+<div class="address"><div class="location"><%= link_to property.address.split(',').first, property_path(property.id) %></div><div class="neighborhood"><%= property.neighborhood %></div><div class="proximity"><%= property.proximity %></div><div class="status"><%= property.status %></div></div><div class="type">Type<br /><br /><%= property.property_type %></div><div class="bedrooms">Beds<br /><br /><%= property.bed %></div><div class="bathrooms">Baths<br /><br /><%= property.bath %></div><div class="price">Price<br /><br />$<%= number_with_delimiter(property.price, :delimiter => ',') %></div>
+<div class="clear_left"></div>
+</div>
+<% end %>
+</div>

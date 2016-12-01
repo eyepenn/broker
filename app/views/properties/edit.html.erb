@@ -11,8 +11,8 @@
   <%= f.input :price %>
   <%= f.input :maintenance %>
   <%= f.input :property_type, collection: ['Co-Op', 'Condo', 'House', 'Commercial'] %>
-  <%= f.input :bed, collection: 0..10 %>
-  <%= f.input :bath, collection: 0..10 %>
+  <%= f.input :bed, collection: 0..10, prompt: "-" %>
+  <%= f.input :bath, collection: 0..10, prompt: "-" %>
 </div>
 <div class="form_right">
   <%= f.input :doorman, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
