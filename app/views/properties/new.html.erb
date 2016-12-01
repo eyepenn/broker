@@ -1,4 +1,6 @@
+<hr>
 <h3>Add New Property</h3>
+<div class="list_holder">
 <%= simple_form_for(@property, html: { class: 'form-horizontal' }) do |f| %>
 <div class="form_left">
   <%= f.input :active, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
@@ -27,4 +29,5 @@
   <%= f.button :submit, class: 'btn btn-success' %>
   <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
 <% end %>
+</div>
 <br />

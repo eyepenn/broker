@@ -1,4 +1,6 @@
-<h1>Update property</h1>
+<hr>
+<h3>Update property</h3>
+<div class="list_holder">
 <%= simple_form_for(@property, html: { class: 'form-horizontal' }) do |f| %>
 <div class="form_left">
   <%= f.input :active, collection: [:Yes, :No], as: :radio_buttons, :item_wrapper_class => 'inline' %>
@@ -28,4 +30,5 @@
     <%= link_to 'Cancel', admin_path, class: 'btn btn-warning' %>
   <%= link_to 'Delete Property', property_path(@property), method: :delete, data: { confirm:'Are you sure you want to delete this property?' }, class: 'btn btn-danger pull-right' %> 
 <% end %>
+</div>
 <br />
