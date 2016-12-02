@@ -14,5 +14,6 @@
 //= require bootstrap-sprockets
 //= require jquery_ujs
 //= require slideshow
+//= require mortgage_calc
 //= require turbolinks
 //= require_tree .

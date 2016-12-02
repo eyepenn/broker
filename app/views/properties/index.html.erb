@@ -1,3 +1,18 @@
+    	<form name=temps>
+			Years: <input onChange=dosum() size=6 value=30 name=YR>
+			Interest: <input onChange=dosum() size=6 value=6.5 name=IR>
+			Loan Amount:<input onchange=dosum() size=6 value=100000 name=LA>
+
+
+			Annual Tax:<input onchange=dosum() size=6 value=1000 name=AT>
+			Annual Insurance:<input onchange=dosum() size=6 value=300 name=AI>
+			<input onClick=dosum() type=button value="Calculate Payment">
+			Monthly Principal + Interest: <input size=10 name=PI>
+			Monthly Tax: <input size=10 name=MT>
+			Monthly Insurance:<input size=10 name=MI>
+			Total Payment:<input size=10 name=MP>
+		</form>
+
     	<div id="bridge">
         	<div id="menu">
             	<div id="menu_items"><%= link_to 'Sales', sales_path %>&nbsp;&nbsp;&nbsp;&mdash;&nbsp;&nbsp;&nbsp;<%= link_to 'Rentals', rentals_path %></div>

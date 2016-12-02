@@ -144,28 +144,46 @@ h4 {
 	text-align:center;
 	width:100px;
 }
-
-
-
 #showcontent {
+	font-family: 'montserratlight';
+	text-transform: uppercase;
 	float:left;
-	margin:0 30px 0 0;
+	margin:14px 78px 0 0;
+	padding-left:4px;
 }
-#media {
-	float:left;
+.show_location {
+	font-family: 'montserratregular';
+	font-size:24px;
+	color:#A03131;
+}
+.show_neighborhood {
+	font-family: 'montserratregular';
+	font-size:16px;
+	margin:2px 0 4px 0;	
+}
+.show_price {
+	font-family: 'montserratregular';
+	font-size:18px;
+	color:#A03131;
+	margin:10px 0 10px 0;
+}
+.show_description {
+	font-family: 'montserratlight';
+	font-size:14px;
+	margin:10px 0 0 4px;
 }
 #photos {
 	float:left;
 	width:440px;
+	margin-top:14px;
 }
 #map {
   height: 300px;
-  width:300px;
+  width:740px;
   border:1px solid #CCCCCC;
-  margin:0 0px 0 30px;
+  margin:12px 0px 10px 4px;
   float:left;
   }
-
 hr {
 	margin:6px 10px 0 10px;
 	border-top:1px solid #d4d4d4

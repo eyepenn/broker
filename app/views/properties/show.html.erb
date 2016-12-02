@@ -1,26 +1,24 @@
-<br><br>
-<h3>Show</h3>
 <hr>
+<div class="list_holder">
 <div id="showcontent">
-<h4><%= @property.status %></h4>
-<b>Address:</b> <%= @property.address %><br>
-<b>Neighborhood:</b> <%= @property.neighborhood %><br>
-<b>Price:</b> $<%= number_with_delimiter(@property.price, :delimiter => ',') %><br>
-<b>Proximity:</b> <%= @property.proximity %><br>
-<b>Description:</b> <%= @property.description.html_safe %><br>
-<b>Doorman:</b> <%= @property.doorman %><br>
-<b>Outdoor:</b> <%= @property.outdoor %><br>   
-<b>Notes:</b> <%= @property.notes %><br>
-<b>Type:</b> <%= @property.property_type %><br>
-<b>Bed:</b> <%= @property.bed %><br>
-<b>Bath:</b> <%= @property.bath %><br>
-<b>Maintenance:</b> $<%= @property.maintenance %><br>
-<b>Images:</b> <%= @property.images %><br>
-<b>Images folder:</b> <%= @property.images_folder %><br>
-Mortage Calculator<br>
+<div class="show_location"><%= @property.address.split(',').first %></div>
+<div class="show_neighborhood"><%= @property.neighborhood %></div>
+<div class="show_proximity"><%= @property.proximity %></div>
+<div class="show_price">$<%= number_with_delimiter(@property.price, :delimiter => ',') %></div>
+<table cellpadding="0" cellpadding="0">
+<tr><td>Maintenance</td><td align="right">$<%= @property.maintenance %></td></tr>
+<tr><td>Type</td><td align="right"><%= @property.property_type %></td></tr>
+<tr><td>Beds</td><td align="right"><%= @property.bed %></td></tr>
+<tr><td>Baths</td><td align="right"><%= @property.bath %></td></tr>
+<tr><td>Doorman</td><td align="right"><%= @property.doorman %></td></tr>
+<tr><td>Outdoor Space</td><td align="right"><%= @property.outdoor %></td></tr>
+<tr><td colspan="2">&nbsp;</td></tr>
+<tr><td colspan="2" align="center"><%= link_to 'Mortage Calculator', '#', data: {toggle: 'modal', target: '#myModal'} %></td></tr>
+</table>
 </div>
   <div id="photos">
   <div class="w3-content w3-display-container">
+  <% @property.images %><% @property.images_folder %>
   <%= image_tag @property.images_folder + '/1.jpg', class: 'mySlides' %>
   <%= image_tag @property.images_folder + '/2.jpg', class: 'mySlides' %>
   <%= image_tag @property.images_folder + '/3.jpg', class: 'mySlides' %>
@@ -42,7 +40,8 @@ Mortage Calculator<br>
   showDivs(slideIndex);
   </script>
 </div>
-<div id="media">
+<div class="clear_left"></div>
+<div class="show_description"><%= @property.description %></div>
 <% if @property.latitude.present? && @property.longitude.present? %>
 <div id="map"></div>
     <script>
@@ -62,5 +61,18 @@ Mortage Calculator<br>
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAq1nE3WDOJD4EXPCMb0JzEpyS97KlZu20&callback=initMap">
     </script>
     <% end %>
-  </div>
-  <div class="clear_left"></div>
+    <div class="clear_left"></div>
+      <!-- Modal -->
+  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+          <h4 class="modal-title" id="myModalLabel">Mortage Calculator</h4>
+        </div>
+        <div class="modal-body">
+          hello
+        </div>
+      </div>
+    </div>
+</div><!--Modal end-->
