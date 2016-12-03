@@ -68,10 +68,25 @@
       <div class="modal-content">
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-          <h4 class="modal-title" id="myModalLabel">Mortage Calculator</h4>
+          <h3 class="modal-title" id="myModalLabel">Mortage Calculator</h3>
         </div>
         <div class="modal-body">
-          hello
+          <div id="mort_calc">
+<form name=temps>
+<table cellspacing="0" cellpadding="0" width="100%">
+<tr><td>Years:</td><td align="right"><input onChange=dosum() size=6 value=30 name=YR></td></tr>
+<tr><td>Interest:</td><td align="right"><input onChange=dosum() size=6 value=3.5 name=IR></td></tr>
+<tr><td>Loan Amount:</td><td align="right"><input onchange=dosum() size=6 name=LA></td></tr>
+<tr><td>Annual Tax:</td><td align="right"><input onchange=dosum() size=6 name=AT></td></tr>
+<tr><td>Annual Insurance:</td><td align="right"><input onchange=dosum() size=6 name=AI></td></tr>
+<tr><td align="center" colspan="2"><input onClick=dosum() type=button value="Calculate Payment" class="btn calculate"></td></tr>
+<tr><td>Monthly Principal + Interest:</td><td align="right"><input size=10 name=PI></td></tr>
+<tr><td>Monthly Tax:</td><td align="right"><input size=10 name=MT></td></tr>
+<tr><td>Monthly Insurance:</td><td align="right"><input size=10 name=MI></td></tr>
+<tr><td>Total Payment:</td><td align="right"><input size=10 name=MP></td></tr>
+</table>
+</form>
+</div>
         </div>
       </div>
     </div>

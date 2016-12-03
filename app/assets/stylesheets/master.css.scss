@@ -184,6 +184,30 @@ h4 {
   margin:12px 0px 10px 4px;
   float:left;
   }
+#mort_calc {
+	width:310px;
+	font-family: 'montserratregular';
+	font-size:14px;
+}
+#mort_calc .calculate {
+	margin:5px 0 9px 0;
+	background-color:#A03131;
+	color:#FFF;
+}
+#mort_calc input {
+	margin:0 0 4px 0;
+}
+.modal-header {
+    padding: 8px 15px 8px 3px;
+    border-bottom: 1px solid #e5e5e5;
+}
+.modal-content {
+	width:340px;
+}
+.modal-dialog {
+    width: 340px;
+    margin: 40px auto;
+}
 hr {
 	margin:6px 10px 0 10px;
 	border-top:1px solid #d4d4d4
