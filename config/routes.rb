@@ -2,9 +2,7 @@ Rails.application.routes.draw do
   devise_for :users, controllers: { registrations: 'registrations' }
   root 'properties#index'
 
-  resources :properties do
-    resources :photos, only: :create
-  end
+  resources :properties
 
   get 'rentals', to: 'properties#rentals'
   get 'sales', to: 'properties#sales'
