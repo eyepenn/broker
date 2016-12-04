@@ -1,8 +1,9 @@
-html {
+body, html {
 	height:100%;
 	width:100%;
 	padding:0px;
 	margin:0px;
+	background-color:#000000;
 }
 #content_holder {
 	width:100%;
@@ -14,7 +15,7 @@ html {
 	text-align:left;
 	margin:0 auto;
 	padding-bottom:1px;
-	box-shadow: 0 0px 5px 5px #c0c0c0;
+	background-color:#FFFFFF;
 }
 .logo_holder {
 	padding:12px 0 0 8px;	
@@ -37,7 +38,7 @@ a.logo, a.logo:hover {
 	width:765px;
 	height:521px;
 	background-image:url(bridge.jpg);
-	margin-top:10px;
+	margin:10px 0 0 0px;
 }
 #menu {
 	background-color:rgba(0,0,0,0.8);
