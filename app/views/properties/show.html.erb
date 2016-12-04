@@ -6,42 +6,46 @@
 <div class="show_proximity"><%= @property.proximity %></div>
 <div class="show_price">$<%= number_with_delimiter(@property.price, :delimiter => ',') %></div>
 <table cellpadding="0" cellpadding="0">
+<% if @property.notes.present? %>
+<tr><td>Notes</td><td align="right"><%= @property.notes %></td></tr>
+<% end %>
+<% if @property.maintenance.present? %>
 <tr><td>Maintenance</td><td align="right">$<%= @property.maintenance %></td></tr>
+<% end %>
 <tr><td>Type</td><td align="right"><%= @property.property_type %></td></tr>
 <tr><td>Beds</td><td align="right"><%= @property.bed %></td></tr>
 <tr><td>Baths</td><td align="right"><%= @property.bath %></td></tr>
 <tr><td>Doorman</td><td align="right"><%= @property.doorman %></td></tr>
 <tr><td>Outdoor Space</td><td align="right"><%= @property.outdoor %></td></tr>
 <tr><td colspan="2">&nbsp;</td></tr>
+<% if (@property.status != 'For Rent') %>
 <tr><td colspan="2" align="center"><%= link_to 'Mortage Calculator', '#', data: {toggle: 'modal', target: '#myModal'} %></td></tr>
+<% end %>
 </table>
 </div>
   <div id="photos">
   <div class="w3-content w3-display-container">
-  <% @property.images %><% @property.images_folder %>
-  <%= image_tag @property.images_folder + '/1.jpg', class: 'mySlides' %>
-  <%= image_tag @property.images_folder + '/2.jpg', class: 'mySlides' %>
-  <%= image_tag @property.images_folder + '/3.jpg', class: 'mySlides' %>
-  <%= image_tag @property.images_folder + '/4.jpg', class: 'mySlides' %>
-  <%= image_tag @property.images_folder + '/5.jpg', class: 'mySlides' %>
-  <%= image_tag @property.images_folder + '/6.jpg', class: 'mySlides' %>
+  <% n = 1 %>
+  <% @property.images.times do %>
+  <%= image_tag @property.images_folder + '/' + n.to_s + '.jpg', class: 'mySlides' %>
+  <% n += 1 %>
+  <% end %>
   <a class="w3-btn-floating w3-display-left" onclick="plusDivs(-1)">&#10094;</a>
   <a class="w3-btn-floating w3-display-right" onclick="plusDivs(+1)">&#10095;</a>
   </div>
   <div class="w3-content w3-display-container w3-display-center">
-    <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(1)"></span>
-      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(2)"></span>
-      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(3)"></span>
-      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(4)"></span>
-      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(5)"></span>
-      <span class="w3-badge demo w3-border w3-transparent w3-hover-black" onclick="currentDiv(6)"></span>
+  <% n = 1 %>
+  <% @property.images.times do %>
+  <span class='w3-badge demo w3-border w3-transparent w3-hover-black' onclick='currentDiv(<%= n.to_s %>)'></span>
+  <% n += 1 %>
+  <% end %>
   </div>
   <script>
   showDivs(slideIndex);
   </script>
 </div>
 <div class="clear_left"></div>
-<div class="show_description"><%= @property.description %></div>
+<div class="show_description"><%= @property.description.html_safe %></div>
 <% if @property.latitude.present? && @property.longitude.present? %>
 <div id="map"></div>
     <script>
