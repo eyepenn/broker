@@ -93,7 +93,11 @@ h4 {
 .property_holder {
 	font-family: 'montserratlight';
 	text-transform:uppercase;
-	margin:0 0 10px 0;	
+	margin:0 0 0px 0;
+	padding:0 0 22px 0;	
+	background-image:url(line.jpg);
+	background-repeat:no-repeat;
+	background-position:27px 144px;
 }
 .property_holder img {
 	float:left;
