@@ -7,7 +7,7 @@
 <div class="show_price">$<%= number_with_delimiter(@property.price, :delimiter => ',') %></div>
 <table cellpadding="0" cellpadding="0">
 <% if @property.notes.present? %>
-<tr><td>Notes</td><td align="right"><%= @property.notes %></td></tr>
+<tr><td align="left" colspan="2"><span class="show_notes"><%= @property.notes %></span></td></tr>
 <% end %>
 <% if @property.maintenance.present? %>
 <tr><td>Maintenance</td><td align="right">$<%= @property.maintenance %></td></tr>
